@@ -7,6 +7,7 @@ class Admin:public Account{
 	public:
 		Admin();
 		Admin(string, string);
+		//void setRole(string);
 		void addUser(string, string);
 		void addTeller(string, string);
 		void addAdmin(string, string);

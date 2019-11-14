@@ -1,6 +1,6 @@
 //Client.cpp
 #include"Client.h"
-#include<string>
+#include<sstream>
 Client::Client(){
 	this->bal=0.0;
 	setRole("Client");
@@ -33,6 +33,10 @@ void Client::print(){
 
 string Client::toString(){
 	string output;
-	output=Account::toString()+" "+std::to_string(bal); //needs fixing how to convert double to string
+	string balance;
+	stringstream amount;
+	amount>>bal;
+	balance=amount.str();
+	output=Account::toString()+" "+balance; //needs fixing how to convert double to string
 	return output;
 }

@@ -10,6 +10,7 @@ Admin::Admin(string ID, string pswd){
 	setPass(pswd);
 	setRole("Admin");
 }
+
 void Admin::addUser(string ID, string pswd){
 	//inprogress
 }

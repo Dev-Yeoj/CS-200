@@ -1,12 +1,13 @@
 //Account.h
 #include<iostream>
 #include<string>
+
 using namespace std;
 #ifndef ACCOUNT_H
 #define ACCOUNT_H
 class Account
 {
-	private:
+	protected:
 		string userID;
 		string firstName;
 		string lastName;
@@ -21,7 +22,7 @@ class Account
 		string getFullNm();
 		string getDOB();
 		string getRole();
-		void setRole();
+		void setRole(string);
 		void setID(string);
 		void setPass(string);
 		void setFullNm(string, string);

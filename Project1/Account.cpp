@@ -5,6 +5,7 @@ Account::Account(){
 	setID("");
 	setFullNm("","");
 	setDOB("");
+	setRole("");
 }
 
 void Account::setID(string id){
@@ -22,6 +23,14 @@ void Account::setFullNm(string first,string last){
 
 void Account::setDOB(string dob){
 	this->DOB=dob;
+}
+
+void Account::setRole(string role){
+	this->role=role;
+}
+
+string Account::getRole(){
+	return this->role;
 }
 
 string Account::getID(){
