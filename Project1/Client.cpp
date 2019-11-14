@@ -37,6 +37,6 @@ string Client::toString(){
 	stringstream amount;
 	amount>>bal;
 	balance=amount.str();
-	output=Account::toString()+" "+balance; //needs fixing how to convert double to string
+	output=Account::toString()+" "+balance;
 	return output;
 }
