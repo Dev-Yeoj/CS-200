@@ -22,6 +22,7 @@ void Teller::print(){
 }
 
 string Teller::toString(){
-	//inprogress
-	return "";
+	string output;
+	output=Account::toString();
+	return output;
 }

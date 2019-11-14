@@ -41,12 +41,13 @@ string Account::getDOB(){
 }
 
 void Account::print(){//does not print password
-	cout<<"Account ID: "<<this->userID>>"\n"
+	cout<<"Account ID: "<<this->userID<<"\n"
 		<<"Account holder: "<<this->firstName<<" "<<this->lastName<<" "
 		<<"DOB: "<<this->DOB<<endl;
 }
 
 string Account::toString(){
-	//inprogress
-	return "";
+	string output;
+	output= this->userID+" "+this->password+" "+this->firstName+" "+this->lastName+" "+this->DOB;
+	return output;
 }

@@ -29,6 +29,7 @@ void Admin::print(){
 }
 
 string Admin::toString(){
-	//inprogress
-	return "";
+	string output;
+	output=Account::toString();
+	return output;
 }
