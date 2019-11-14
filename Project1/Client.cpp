@@ -1,6 +1,5 @@
 //Client.cpp
 #include"Client.h"
-
 Client::Client(){
 	this->bal=0.0;
 }
@@ -31,6 +30,6 @@ void Client::print(){
 
 string Client::toString(){
 	string output;
-	output=Account::toString()+" "+this->bal;
+	output=Account::toString()+" "+bal; //needs fixing how to convert double to string
 	return output;
 }
