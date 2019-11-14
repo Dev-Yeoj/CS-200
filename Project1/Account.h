@@ -12,6 +12,7 @@ class Account
 		string lastName;
 		string DOB;
 		string password;
+		string role;
 		
 	public:
 		Account();
@@ -19,6 +20,8 @@ class Account
 		string getPass();
 		string getFullNm();
 		string getDOB();
+		string getRole();
+		void setRole();
 		void setID(string);
 		void setPass(string);
 		void setFullNm(string, string);

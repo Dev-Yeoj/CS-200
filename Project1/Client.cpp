@@ -1,12 +1,15 @@
 //Client.cpp
 #include"Client.h"
+#include<string>
 Client::Client(){
 	this->bal=0.0;
+	setRole("Client");
 }
 Client::Client(string ID, string pswd){
 	this->bal=0;
 	setID(ID);
 	setPass(pswd);
+	setRole("Client");
 }
 
 void Client::deposit(double amount){
@@ -30,6 +33,6 @@ void Client::print(){
 
 string Client::toString(){
 	string output;
-	output=Account::toString()+" "+bal; //needs fixing how to convert double to string
+	output=Account::toString()+" "+std::to_string(bal); //needs fixing how to convert double to string
 	return output;
 }
