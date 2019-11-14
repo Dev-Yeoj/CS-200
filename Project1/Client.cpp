@@ -30,6 +30,7 @@ void Client::print(){
 }
 
 string Client::toString(){
-	//inprogress
-	return "";
+	string output;
+	output=Account::toString()+" "+this->bal;
+	return output;
 }
