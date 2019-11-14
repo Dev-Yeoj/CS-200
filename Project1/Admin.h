@@ -1,15 +1,16 @@
 //Admin.h
 #include<iostream>
 #include"Account.h"
+#include"Client.h"
+#include"Teller.h"
 #ifndef ADMIN_H
 #define ADMIN_H
 class Admin:public Account{
 	public:
 		Admin();
-		Admin(string, string);
-		void addUser(string, string);
-		void addTeller(string, string);
-		void addAdmin(string, string);
+		Client* addClient();
+		Teller* addTeller();
+		Admin* addAdmin();
 		void viewLog();
 		void print();
 		string toString();

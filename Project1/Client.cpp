@@ -5,12 +5,6 @@ Client::Client(){
 	this->bal=0.0;
 	setRole("Client");
 }
-Client::Client(string ID, string pswd){
-	this->bal=0;
-	setID(ID);
-	setPass(pswd);
-	setRole("Client");
-}
 
 void Client::deposit(double amount){
 	this->bal+= amount;

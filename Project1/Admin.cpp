@@ -5,14 +5,16 @@ Admin::Admin(){
 	setRole("Admin");
 }
 
-Admin::Admin(string ID, string pswd){
-	setID(ID);
-	setPass(pswd);
-	setRole("Admin");
-}
-
-void Admin::addUser(string ID, string pswd){
-	//inprogress
+Client* Admin::addClient(string ID, string pswd){
+	Client* a1 = new Client;
+	a1->setID(ID);
+	a1->setPass(pswd);
+	string dob, first, last;
+	cout<<"Please enter First name, last name, and date of birth for new client: ";
+	cin>> first, last, dob;
+	a1->setDOB(dob);
+	a1->setFullNm(first, last);
+	return a1;
 }
 
 void Admin::addTeller(string ID, string pswd){

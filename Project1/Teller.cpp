@@ -5,17 +5,15 @@ Teller::Teller(){
 	setRole("Teller");
 }
 
-Teller::Teller(string ID, string pswd){
-	setID(ID);
-	setPass(pswd);
-	setRole("Teller");
-}
-
 void Teller::addUser(string ID, string pswd){
 	//inprogress
 }
 
 void Teller::openAccount(string ID, string pswd){
+	//inprogress
+}
+
+void Teller::viewLog(){
 	//inprogress
 }
 

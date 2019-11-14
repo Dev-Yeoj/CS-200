@@ -6,10 +6,10 @@
 class Teller:public Account{
 	public:
 		Teller();
-		Teller(string, string);
 		void addUser(string, string);
 		void openAccount(string, string);
 		void print();
+		void viewLog();
 		string toString();
 };
 #endif
