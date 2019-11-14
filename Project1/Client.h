@@ -8,9 +8,11 @@ class Client:public Account{
 		double bal;
 	public:
 		Client();
+		Client(string, string);
 		double getBal();
 		void deposit(double);
 		void withdraw(double);
 		void print();
+		string toString();
 };
 #endif

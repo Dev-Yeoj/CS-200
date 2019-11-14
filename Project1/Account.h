@@ -16,12 +16,15 @@ class Account
 	public:
 		Account();
 		string getID();
+		string getPass();
 		string getFullNm();
 		string getDOB();
 		void setID(string);
+		void setPass(string);
 		void setFullNm(string, string);
 		void setDOB(string);
 		void virtual print()=0;
+		string virtual toString()=0;
 };
 
 #endif

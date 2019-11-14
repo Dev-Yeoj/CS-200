@@ -12,5 +12,6 @@ class Admin:public Account{
 		void addAdmin(string, string);
 		void viewLog();
 		void print();
+		string toString();
 };
 #endif

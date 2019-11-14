@@ -10,5 +10,6 @@ class Teller:public Account{
 		void addUser(string, string);
 		void openAccount(string, string);
 		void print();
+		string toString();
 };
 #endif
