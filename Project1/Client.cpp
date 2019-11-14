@@ -24,7 +24,9 @@ void Client::withdraw(double amount){
 }
 
 void Client::print(){
-	//inprogress
+	cout<<"Client Account\n";
+	Account::print();
+	cout<<"Current balance: "<<this->bal<<endl;
 }
 
 string Client::toString(){

@@ -24,7 +24,8 @@ void Admin::viewLog(){
 }
 
 void Admin::print(){
-	//inprogress
+	cout<<"Admin Account\n";
+	Account::print();
 }
 
 string Admin::toString(){

@@ -33,15 +33,17 @@ string Account::getPass(){
 }
 
 string Account::getFullNm(){
-	return firstName+lastName;
+	return firstName+" "+lastName;
 }
 
 string Account::getDOB(){
 	return DOB;
 }
 
-void Account::print(){
-	//inprogress
+void Account::print(){//does not print password
+	cout<<"Account ID: "<<this->userID>>"\n"
+		<<"Account holder: "<<this->firstName<<" "<<this->lastName<<" "
+		<<"DOB: "<<this->DOB<<endl;
 }
 
 string Account::toString(){

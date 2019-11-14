@@ -17,7 +17,8 @@ void Teller::openAccount(string ID, string pswd){
 }
 
 void Teller::print(){
-	//inprogress
+	cout<<"Teller Account\n";
+	Account::print();
 }
 
 string Teller::toString(){
