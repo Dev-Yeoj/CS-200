@@ -5,24 +5,40 @@ Admin::Admin(){
 	setRole("Admin");
 }
 
-Client* Admin::addClient(string ID, string pswd){
+Client* Admin::addClient(){
 	Client* a1 = new Client;
+	string dob, first, last, ID, pswd;
+	cout<<"Please enter User ID, Password, First name, last name, and date of birth for new client: ";
+	cin>> ID>> pswd>> first>> last>> dob;
 	a1->setID(ID);
 	a1->setPass(pswd);
-	string dob, first, last;
-	cout<<"Please enter First name, last name, and date of birth for new client: ";
-	cin>> first, last, dob;
 	a1->setDOB(dob);
 	a1->setFullNm(first, last);
 	return a1;
 }
 
-void Admin::addTeller(string ID, string pswd){
-	//inprogress
+Teller* Admin::addTeller(){
+	Teller* a1 = new Teller;
+	string dob, first, last, ID, pswd;
+	cout<<"Please enter User ID, Password, First name, last name, and date of birth for new client: ";
+	cin>> ID>> pswd>> first>> last>> dob;
+	a1->setID(ID);
+	a1->setPass(pswd);
+	a1->setDOB(dob);
+	a1->setFullNm(first, last);
+	return a1;
 }
 
-void Admin::addAdmin(string ID, string pswd){
-	//inprogress
+Admin* Admin::addAdmin(){
+	Admin* a1 = new Admin;
+	string dob, first, last, pswd, ID;
+	cout<<"Please enter User ID, Password, First name, last name, and date of birth for new client: ";
+	cin>> ID>> pswd>> first>> last>> dob;
+	a1->setID(ID);
+	a1->setPass(pswd);
+	a1->setDOB(dob);
+	a1->setFullNm(first, last);
+	return a1;
 }
 
 void Admin::viewLog(){
