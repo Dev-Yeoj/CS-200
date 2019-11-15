@@ -18,7 +18,10 @@ Client* Teller::addClient(){
 }
 
 void Teller::openAccount(){//ask for username and password call menu
-	//inprogress
+	string id, pswd;
+	cout<<"Please enter Clients ID and password: ";
+	cin>>id, pswd;
+	
 }
 
 void Teller::viewLog(){

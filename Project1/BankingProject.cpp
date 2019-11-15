@@ -12,6 +12,7 @@ int main(int argc, char** argv) {
 	//variable initialization
 	Account* accPTR[100];
 	int count=0;
+	int choice;
 	//decrypt and load
 	
 	//login & menu
