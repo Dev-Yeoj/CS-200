@@ -56,6 +56,6 @@ string Admin::toString(){
 	return output;
 }
 
-int menu(){
+int Admin::menu(){
 	return 0;
 }

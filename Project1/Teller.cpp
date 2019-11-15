@@ -17,7 +17,7 @@ Client* Teller::addClient(){
 	return a1;
 }
 
-void Teller::openAccount(string ID, string pswd){
+void Teller::openAccount(){//ask for username and password call menu
 	//inprogress
 }
 
@@ -36,6 +36,6 @@ string Teller::toString(){
 	return output;
 }
 
-int menu(){
+int Teller::menu(){
 	return 0;
 }

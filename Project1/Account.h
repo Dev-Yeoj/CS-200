@@ -27,9 +27,9 @@ class Account
 		void setPass(string);
 		void setFullNm(string, string);
 		void setDOB(string);
-		void virtual print()=0;
-		string virtual toString()=0;
-		int virtual menu()=0;
+		virtual void print()=0;
+		virtual string  toString()=0;
+		virtual int menu()=0;
 };
 
 #endif

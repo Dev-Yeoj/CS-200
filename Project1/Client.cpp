@@ -35,6 +35,6 @@ string Client::toString(){
 	return output;
 }
 
-int menu(){
+int Client::menu(){
 	return 0;
 }
