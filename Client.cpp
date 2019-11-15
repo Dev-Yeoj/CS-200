@@ -48,10 +48,10 @@ int Client::menu(){//Client menu
          <<"\nEnter your choice: ";
     cin >>choice;
     return choice;
-};
+}
 	do
   { //choice controlled system
-        system("Case");
+        system("CLS");
         option = menu();
         switch(option)
         {

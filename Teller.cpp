@@ -65,23 +65,20 @@ int Teller::menu(){//teller menu
          <<"\nEnter your choice: ";
     cin >>choice;
     return choice;
-};
+}
 do
-{ //choice controlled system
-        system("Case");
+    {//choice controlled system
+        system("CLS");
         option = menu();
         switch(option)
         {
-                      case 1:cout << "Enter Amount";
-			cin >> transaction;
-			Deposit();
+                      case 1:addClient();
                            break;
-                      case 2:cout << "Enter Amount";
-                           cin >> transaction;
-			Withdraw();
+                      case 2: 
+			openAccount();
                            break;
-                      case 3:viewBal();
-			cout << "" <<Bal<<"\n";
+                      case 3:
+                           viewLog();
                            break;
                       case 4: cout <<"Goodbye";
                            break;
