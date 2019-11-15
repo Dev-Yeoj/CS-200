@@ -60,7 +60,7 @@ int main(int argc, char** argv) {
 
 int saveAndEncrypt()
 {
-	char key = "q" //Key to be used with XOR algorithm
+	char key = 'q' //Key to be used with XOR algorithm
 	string INFO =""; //Blank initializer for string: INFO
 
 	ofstream adminsFile;
@@ -78,7 +78,7 @@ int saveAndEncrypt()
 
 	adminsFile.open("adminList.txt");
 	//In this for loop the "i" represents which admin in the array of admins
-	for(int i=0, i < adminCount, i++)
+	for(int i=0; i < adminCount; i++)
 	{
 
 		//In this for loop the "x" a single character in the string of adminPTR[i]
@@ -94,7 +94,7 @@ int saveAndEncrypt()
 
 
 	tellersFile.open("tellerList.txt");
-	for(int i=0, i < tellerCount, i++)
+	for(int i=0; i < tellerCount; i++)
 	{
 		for (int x = 0; x <tellerPTR[x].toString().length(); x++)
     		{
@@ -108,7 +108,7 @@ int saveAndEncrypt()
 
 
 	clientsFile.open("clientList.txt");
-	for(int i=0, i < clientCount, i++)
+	for(int i=0; i < clientCount; i++)
 	{
 		for (int x = 0; x <clientPTR[x].toString().length(); x++)
     		{
