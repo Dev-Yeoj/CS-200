@@ -75,7 +75,7 @@ string readAndDecrypt()
 
 int saveAndEncrypt()
 {
-	char key = 'q' //Key to be used with XOR algorithm
+	char key = 'q'; //Key to be used with XOR algorithm
 	string INFO =""; //Blank initializer for string: INFO
 
 	ofstream adminsFile;
@@ -141,10 +141,14 @@ int saveAndEncrypt()
 int main(int argc, char** argv) {
 	//variable initialization
 	Account* accPTR[100];
+	Admin* ad;
+	Teller* tell;
+	Client* cli;
 	int count=0;
-	int choice;
+	int option;
 	int flag;
 	string id, pswd;
+	double transaction;
 	//decrypt and load
 	
 	//login & menu
@@ -155,22 +159,22 @@ int main(int argc, char** argv) {
 		for(int i=0; i<count;i++){
 			if(accPTR[i]->getID()==id && accPTR[i]->getPass()==pswd){
 				do{
-					choice=accPTR[i]->menu();
 					switch(accPTR[i]->getRole()){
 						case 1://Admin
+						ad*=(Admin*)accPTR[i];
 							do {//choice controlled system
-							    system("Case");
-							    int option = accPTR[i]->menu();
+							    system("CLS");
+							     option = ad->menu();
 							    switch(option) {
-							      case 1:addClient();
+							      case 1:ad->addClient();
 							           break;
-							      case 2: addTeller();
+							      case 2: ad->addTeller();
 							           break;
-									case 3: addAdmin();
+									case 3: ad->addAdmin();
 							           break;
-							      case 4:viewLog();
+							      case 4:ad->viewLog();
 							           break;
-							      case 4: cout <<"Goodbye";
+							      case 5: cout <<"Goodbye";
 							      flag=0;
 							           break;
 							      default: cout << "Invalid option!\n";
@@ -180,46 +184,23 @@ int main(int argc, char** argv) {
 							}while(option != 5);
 							break;
 						case 2://Teller
-							string id, pswd;
-							
-							do { //choice controlled system
-						        system("Case");
-						        option = menu();
-						        switch(option) {
-						        	case 1:cout << "Enter Amount";
-										cin >> transaction;
-										Deposit(transaction);
-						                break;
-						            case 2:cout << "Enter Amount";
-						                cin >> transaction;
-										Withdraw(transaction);
-						                break;
-						            case 3:viewBal();
-										cout << "" <<Bal<<"\n";
-						                break;
-						            case 4: cout <<"Goodbye";
-						            	flag=0;
-						                break;
-						            default: cout << "Invalid option!\n";
-						        }
-						        system("PAUSE");
-						    }while(option != 4);
 							break;
 						case 3://Client
+							cli*=(Client*)accPTR[i];
 							do { //choice controlled system
-						        system("Case");
-						        option = menu();
+						        system("CLS");
+						        option = cli->menu();
 						        switch(option) {
 						        case 1:cout << "Enter Amount";
 									cin >> transaction;
-									accPTR[i].deposit(transaction);
+									cli->deposit(transaction);
 						            break;
 						        case 2:cout << "Enter Amount";
 						            cin >> transaction;
-									accPTR[i].withdraw(transaction);
+									cli->withdraw(transaction);
 						            break;
-						        case 3:viewBal();
-									cout << "Current Balance: " <<accPTR.getBal()<<"\n";
+						        case 3:cli->getBal();
+									cout << "Current Balance: " <<accPTR->getBal()<<"\n";
 						            break;
 						        case 4: cout <<"Goodbye";
 						        	flag=0;
@@ -232,7 +213,7 @@ int main(int argc, char** argv) {
 							break;
 						default: break;
 					}
-				sytstem("CLS");
+				system("CLS");
 				}while(flag==1);
 				
 			}
