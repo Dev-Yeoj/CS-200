@@ -55,3 +55,7 @@ string Admin::toString(){
 	output=Account::toString();
 	return output;
 }
+
+int menu(){
+	return 0;
+}

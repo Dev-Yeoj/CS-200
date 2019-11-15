@@ -34,3 +34,7 @@ string Client::toString(){
 	output=Account::toString()+" "+balance;
 	return output;
 }
+
+int menu(){
+	return 0;
+}

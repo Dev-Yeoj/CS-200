@@ -60,3 +60,6 @@ string Account::toString(){
 	output= this->userID+" "+this->password+" "+this->firstName+" "+this->lastName+" "+this->DOB;
 	return output;
 }
+int menu(){
+	return 0;
+}
