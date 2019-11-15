@@ -13,5 +13,6 @@ class Client:public Account{
 		void withdraw(double);
 		void print();
 		string toString();
+		int menu();
 };
 #endif

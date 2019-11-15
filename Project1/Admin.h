@@ -14,5 +14,6 @@ class Admin:public Account{
 		void viewLog();
 		void print();
 		string toString();
+		int menu();
 };
 #endif

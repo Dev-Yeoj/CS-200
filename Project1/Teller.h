@@ -11,5 +11,6 @@ class Teller:public Account{
 		void print();
 		void viewLog();
 		string toString();
+		int menu();
 };
 #endif

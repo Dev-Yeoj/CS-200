@@ -29,6 +29,7 @@ class Account
 		void setDOB(string);
 		void virtual print()=0;
 		string virtual toString()=0;
+		int virtual menu()=0;
 };
 
 #endif
