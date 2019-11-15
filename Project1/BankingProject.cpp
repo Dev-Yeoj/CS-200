@@ -8,7 +8,8 @@
 
 int main(int argc, char** argv) {
 	//variable initialization
-	
+	Account* accPTR[100];
+	int count=0;
 	//decrypt and load
 	
 	//login & menu

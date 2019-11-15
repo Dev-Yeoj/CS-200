@@ -1,12 +1,13 @@
 //Teller.h
 #include<iostream>
 #include"Account.h"
+#include"Client.h"
 #ifndef TELLER_H
 #define TELLER_H
 class Teller:public Account{
 	public:
 		Teller();
-		void addClient();
+		Client* addClient();
 		void openAccount(string, string);
 		void print();
 		void viewLog();
