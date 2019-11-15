@@ -200,7 +200,7 @@ int main(int argc, char** argv) {
 									cli->withdraw(transaction);
 						            break;
 						        case 3:cli->getBal();
-									cout << "Current Balance: " <<accPTR->getBal()<<"\n";
+									cout << "Current Balance: " <<cli->getBal()<<"\n";
 						            break;
 						        case 4: cout <<"Goodbye";
 						        	flag=0;
