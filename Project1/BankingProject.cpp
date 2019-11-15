@@ -45,6 +45,7 @@ int main(int argc, char** argv) {
 							break;
 						default: break;
 					}
+				sytstem("CLS");
 				}while(flag==1);
 				
 			}

@@ -30,6 +30,7 @@ void Teller::openAccount(){//ask for username and password call menu
 					switch(choice){
 						case 1://...
 					}
+					system("CLS");
 				}while(choice!=4);
 				
 			}
