@@ -20,7 +20,7 @@ Client* Admin::addClient(){
 Teller* Admin::addTeller(){
 	Teller* a1 = new Teller;
 	string dob, first, last, ID, pswd;
-	cout<<"Please enter User ID, Password, First name, last name, and date of birth for new client: ";
+	cout<<"Please enter User ID, Password, First name, last name, and date of birth for new teller: ";
 	cin>> ID>> pswd>> first>> last>> dob;
 	a1->setID(ID);
 	a1->setPass(pswd);
@@ -32,7 +32,7 @@ Teller* Admin::addTeller(){
 Admin* Admin::addAdmin(){
 	Admin* a1 = new Admin;
 	string dob, first, last, pswd, ID;
-	cout<<"Please enter User ID, Password, First name, last name, and date of birth for new client: ";
+	cout<<"Please enter User ID, Password, First name, last name, and date of birth for new admin: ";
 	cin>> ID>> pswd>> first>> last>> dob;
 	a1->setID(ID);
 	a1->setPass(pswd);
