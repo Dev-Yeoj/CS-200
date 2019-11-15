@@ -26,7 +26,7 @@ int main(int argc, char** argv) {
 		for(i=0; i<count;i++){
 			if(accPTR[i].getID()==id && accPTR[i].getPass()==pswd){
 				do{
-					choice=BankingProject->accPTR[i].menu();
+					choice=accPTR[i].menu();
 					switch(accPTR[i].getRole()){
 						case "Admin":
 							swtich(choice){
