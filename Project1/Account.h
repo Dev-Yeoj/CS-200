@@ -7,7 +7,7 @@ using namespace std;
 #define ACCOUNT_H
 class Account
 {
-	protected:
+	private:
 		string userID;
 		string firstName;
 		string lastName;
