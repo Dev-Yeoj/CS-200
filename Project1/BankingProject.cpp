@@ -164,9 +164,9 @@ int main(int argc, char** argv) {
 						ad*=(Admin*)accPTR[i];
 							do {//choice controlled system
 							    system("CLS");
-							     option = ad->menu();
+							     option = accPTR[i]->menu();
 							    switch(option) {
-							      case 1:ad->addClient();
+							      case 1:accPTR[i]->addClient();
 							           break;
 							      case 2: ad->addTeller();
 							           break;
@@ -197,7 +197,7 @@ int main(int argc, char** argv) {
 						            break;
 						        case 2:cout << "Enter Amount";
 						            cin >> transaction;
-									cli->withdraw(transaction);
+									accPTR[i]->withdraw(transaction);
 						            break;
 						        case 3:cli->getBal();
 									cout << "Current Balance: " <<cli->getBal()<<"\n";
