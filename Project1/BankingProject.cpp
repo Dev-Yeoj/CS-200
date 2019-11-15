@@ -202,7 +202,6 @@ int main(int argc, char** argv) {
 						                break;
 						            default: cout << "Invalid option!\n";
 						        }
-						        
 						        system("PAUSE");
 						    }while(option != 4);
 							break;
@@ -220,7 +219,7 @@ int main(int argc, char** argv) {
 									accPTR[i].withdraw(transaction);
 						            break;
 						        case 3:viewBal();
-									cout << "" <<Bal<<"\n";
+									cout << "Current Balance: " <<accPTR.getBal()<<"\n";
 						            break;
 						        case 4: cout <<"Goodbye";
 						        	flag=0;
