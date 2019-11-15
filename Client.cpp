@@ -1,6 +1,7 @@
 //Client.cpp
 #include"Client.h"
 #include<sstream>
+int bal;
 Client::Client(){
 	this->bal=0.0;
 	setRole("Client");
@@ -47,7 +48,8 @@ int Client::menu(){//Client menu
          <<"\nEnter your choice: ";
     cin >>choice;
     return choice;
-}
+};
+	do
   { //choice controlled system
         system("Case");
         option = menu();
@@ -62,7 +64,7 @@ int Client::menu(){//Client menu
 			Withdraw();
                            break;
                       case 3:viewBal();
-			cout << "" <<Bal<<"\n";
+			cout << "" <<bal<<"\n";
                            break;
                       case 4: cout <<"Goodbye";
                            break;

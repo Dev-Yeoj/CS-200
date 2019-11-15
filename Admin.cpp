@@ -69,8 +69,8 @@ int Admin::menu(){ //admin menu
          <<"\nEnter your choice: ";
     cin >>choice;
     return choice;
-}
-
+};
+	do
     {//choice controlled system
         system("Case");
         option = menu();

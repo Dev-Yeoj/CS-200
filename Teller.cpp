@@ -66,6 +66,7 @@ int Teller::menu(){//teller menu
     cin >>choice;
     return choice;
 };
+do
 { //choice controlled system
         system("Case");
         option = menu();
