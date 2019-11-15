@@ -5,8 +5,16 @@ Teller::Teller(){
 	setRole("Teller");
 }
 
-void Teller::addUser(string ID, string pswd){
-	//inprogress
+Client* Teller::addClient(){
+	Client* a1 = new Client;
+	string dob, first, last, ID, pswd;
+	cout<<"Please enter User ID, Password, First name, last name, and date of birth for new client: ";
+	cin>> ID>> pswd>> first>> last>> dob;
+	a1->setID(ID);
+	a1->setPass(pswd);
+	a1->setDOB(dob);
+	a1->setFullNm(first, last);
+	return a1;
 }
 
 void Teller::openAccount(string ID, string pswd){
