@@ -14,40 +14,43 @@ int count=0;
 int main(int argc, char** argv) {
 	//variable initialization
 	int choice;
+	int flag;
 	string id, pswd;
 	//decrypt and load
 	
 	//login & menu
-	cout<<"Please enter account ID and password: ";
-	cin>>id, pswd;
-	for(i=0; i<count;i++){
-		if(accPTR[i].getID()==id && accPTR[i].getPass()==pswd){
-			do{
-				choice=BankingProject->accPTR[i].menu();
-				switch(accPTR[i].getRole()){
-					case "Admin":
-						swtich(choice){
-							case 1: //...
-						}
-						break;
-					case "Teller":
-						swtich(choice){
-							case 1: //...
-						}
-						break;
-					case "Client":
-						swtich(choice){
-							case 1: //...
-						}
-						break;
-					default: break;
-				}
-			}while(choice!=4);
+	do{
+		flag=1;
+		cout<<"Please enter account ID and password(to exit program leave blank): ";
+		cin>>id, pswd;
+		for(i=0; i<count;i++){
+			if(accPTR[i].getID()==id && accPTR[i].getPass()==pswd){
+				do{
+					choice=BankingProject->accPTR[i].menu();
+					switch(accPTR[i].getRole()){
+						case "Admin":
+							swtich(choice){
+								case 1: //...
+							}
+							break;
+						case "Teller":
+							swtich(choice){
+								case 1: //...
+							}
+							break;
+						case "Client":
+							swtich(choice){
+								case 1: //...
+							}
+							break;
+						default: break;
+					}
+				}while(flag==1);
+				
+			}
 			
-		}
-		
-	}	
-	
+		}	
+	}while(id!="");
 	//encrypt and write
 	
 	return 0;
