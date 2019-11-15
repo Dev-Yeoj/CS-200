@@ -2,7 +2,7 @@
 #include"Admin.h"
 
 Admin::Admin(){
-	setRole("Admin");
+	setRole(1);
 }
 
 Client* Admin::addClient(){
@@ -63,33 +63,13 @@ int Admin::menu(){ //admin menu
          <<"~~~~~~~~~~~~~~~~~~\n"
          <<"1. Add client\n"
          <<"2. Add teller\n"
-	<<"3. Add admin\n"
-	<<"4. View log\n" //Audit
+		 <<"3. Add admin\n"
+		 <<"4. View log\n" //Audit
          <<"5. EXIT\n"
          <<"\nEnter your choice: ";
     cin >>choice;
     return choice;
-};
-	do
-    {//choice controlled system
-        system("Case");
-        option = menu();
-        switch(option)
-        {
-                      case 1:addClient();
-                           break;
-                      case 2: addTeller();
-                           break;
-		      case 3: addAdmin();
-                           break;
-                      case 4:viewLog();
-                           break;
-                      case 4: cout <<"Goodbye";
-                           break;
-                      default: cout << "Invalid option!\n";
-        }
-        
-        system("PAUSE");
-    }while(option != 5);
 }
+
+
 

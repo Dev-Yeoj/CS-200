@@ -2,7 +2,7 @@
 #include"Teller.h"
 
 Teller::Teller(){
-	setRole("Teller");
+	setRole(2);
 }
 
 Client* Teller::addClient(){
@@ -66,28 +66,4 @@ int Teller::menu(){//teller menu
     cin >>choice;
     return choice;
 };
-do
-{ //choice controlled system
-        system("Case");
-        option = menu();
-        switch(option)
-        {
-                      case 1:cout << "Enter Amount";
-			cin >> transaction;
-			Deposit();
-                           break;
-                      case 2:cout << "Enter Amount";
-                           cin >> transaction;
-			Withdraw();
-                           break;
-                      case 3:viewBal();
-			cout << "" <<Bal<<"\n";
-                           break;
-                      case 4: cout <<"Goodbye";
-                           break;
-                      default: cout << "Invalid option!\n";
-        }
-        
-        system("PAUSE");
-    }while(option != 4);
-}
+
