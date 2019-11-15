@@ -19,9 +19,22 @@ Client* Teller::addClient(){
 
 void Teller::openAccount(){//ask for username and password call menu
 	string id, pswd;
+	int choice;
 	cout<<"Please enter Clients ID and password: ";
 	cin>>id, pswd;
-	
+	for(i=0; i<BankingProject->count;;i++){
+		if(BankingProject->accPTR[i].getRole()=="Client"){
+			if(BankingProject->accPTR[i].getID()==id && BankingProject->accPTR[i].getPass()==pswd){
+				do{
+					choice=BankingProject->accPTR[i].menu();
+					switch(choice){
+						case 1://...
+					}
+				}while(choice!=4);
+				
+			}
+		}
+	}	
 }
 
 void Teller::viewLog(){

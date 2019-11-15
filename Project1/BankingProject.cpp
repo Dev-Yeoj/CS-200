@@ -7,11 +7,12 @@
 #include"Admin.h"
 
 /* run this program using the console pauser or add your own getch, system("pause") or input loop */
+Account* accPTR[100];
+int count=0;
+
 
 int main(int argc, char** argv) {
 	//variable initialization
-	Account* accPTR[100];
-	int count=0;
 	int choice;
 	//decrypt and load
 	
