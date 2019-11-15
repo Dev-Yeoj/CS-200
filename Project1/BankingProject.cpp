@@ -75,7 +75,7 @@ string readAndDecrypt()
 
 int saveAndEncrypt()
 {
-	char key = 'q' //Key to be used with XOR algorithm
+	char key = 'q'; //Key to be used with XOR algorithm
 	string INFO =""; //Blank initializer for string: INFO
 
 	ofstream adminsFile;
