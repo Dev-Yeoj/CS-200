@@ -1,5 +1,6 @@
 //Account.h
 #include<string>
+#include<iostream>
 
 using namespace std;
 #ifndef ACCOUNT_H
@@ -12,7 +13,7 @@ class Account
 		string lastName;
 		string DOB;
 		string password;
-		string role;
+		int role;
 		
 	public:
 		Account();
@@ -20,8 +21,8 @@ class Account
 		string getPass();
 		string getFullNm();
 		string getDOB();
-		string getRole();
-		void setRole(string);
+		int getRole();
+		void setRole(int);
 		void setID(string);
 		void setPass(string);
 		void setFullNm(string, string);

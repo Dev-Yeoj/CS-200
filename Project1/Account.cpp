@@ -5,7 +5,7 @@ Account::Account(){
 	setID("");
 	setFullNm("","");
 	setDOB("");
-	setRole("");
+	setRole(0);
 }
 
 void Account::setID(string id){
@@ -25,11 +25,11 @@ void Account::setDOB(string dob){
 	this->DOB=dob;
 }
 
-void Account::setRole(string role){
+void Account::setRole(int role){
 	this->role=role;
 }
 
-string Account::getRole(){
+int Account::getRole(){
 	return this->role;
 }
 

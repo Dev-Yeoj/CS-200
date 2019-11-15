@@ -7,9 +7,6 @@
 #include"Admin.h"
 
 /* run this program using the console pauser or add your own getch, system("pause") or input loop */
-Account* accPTR[100];
-int count=0;
-
 
 string readAndDecrypt()
 {
@@ -143,6 +140,8 @@ int saveAndEncrypt()
 
 int main(int argc, char** argv) {
 	//variable initialization
+	Account* accPTR[100];
+	int count=0;
 	int choice;
 	int flag;
 	string id, pswd;
@@ -153,25 +152,81 @@ int main(int argc, char** argv) {
 		flag=1;
 		cout<<"Please enter account ID and password(to exit program leave blank): ";
 		cin>>id, pswd;
-		for(i=0; i<count;i++){
-			if(accPTR[i].getID()==id && accPTR[i].getPass()==pswd){
+		for(int i=0; i<count;i++){
+			if(accPTR[i]->getID()==id && accPTR[i]->getPass()==pswd){
 				do{
-					choice=accPTR[i].menu();
-					switch(accPTR[i].getRole()){
-						case "Admin":
-							swtich(choice){
-								case 1: //...
-							}
+					choice=accPTR[i]->menu();
+					switch(accPTR[i]->getRole()){
+						case 1:
+							do {//choice controlled system
+							    system("Case");
+							    int option = accPTR[i]->menu();
+							    switch(option) {
+							      case 1:addClient();
+							           break;
+							      case 2: addTeller();
+							           break;
+									case 3: addAdmin();
+							           break;
+							      case 4:viewLog();
+							           break;
+							      case 4: cout <<"Goodbye";
+							           break;
+							      default: cout << "Invalid option!\n";
+							    }
+							    
+							    system("PAUSE");
+							}while(option != 5);
 							break;
-						case "Teller":
-							swtich(choice){
-								case 1: //...
-							}
+						case 2:
+							string id, pswd;
+							
+							do { //choice controlled system
+						        system("Case");
+						        option = menu();
+						        switch(option) {
+						        	case 1:cout << "Enter Amount";
+										cin >> transaction;
+										Deposit(transaction);
+						                break;
+						            case 2:cout << "Enter Amount";
+						                cin >> transaction;
+										Withdraw(transaction);
+						                break;
+						            case 3:viewBal();
+										cout << "" <<Bal<<"\n";
+						                break;
+						            case 4: cout <<"Goodbye";
+						                break;
+						            default: cout << "Invalid option!\n";
+						        }
+						        
+						        system("PAUSE");
+						    }while(option != 4);
 							break;
-						case "Client":
-							swtich(choice){
-								case 1: //...
-							}
+						case 3:
+							do { //choice controlled system
+						        system("Case");
+						        option = menu();
+						        switch(option) {
+						        case 1:cout << "Enter Amount";
+									cin >> transaction;
+									Deposit();
+						            break;
+						        case 2:cout << "Enter Amount";
+						            cin >> transaction;
+									Withdraw();
+						            break;
+						        case 3:viewBal();
+									cout << "" <<Bal<<"\n";
+						            break;
+						        case 4: cout <<"Goodbye";
+						            break;
+						        default: cout << "Invalid option!\n";
+						        }
+						        
+						        system("PAUSE");
+						    }while(option != 4);
 							break;
 						default: break;
 					}

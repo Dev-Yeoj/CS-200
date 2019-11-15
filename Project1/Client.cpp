@@ -3,7 +3,7 @@
 #include<sstream>
 Client::Client(){
 	this->bal=0.0;
-	setRole("Client");
+	setRole(3);
 }
 
 void Client::deposit(double amount){
@@ -36,5 +36,15 @@ string Client::toString(){
 }
 
 int Client::menu(){
-	return 0;
+
+    int choice;
+    cout <<"ATM\n"
+         <<"~~~~~~~~~~~~~~~~~~\n"
+         <<"1. Deposit\n"
+         <<"2. Withdrawl\n"
+		 <<"3. View Balance\n"
+  		 <<"4. EXIT\n"
+         <<"\nEnter your choice: ";
+    cin >>choice;
+    return choice;
 }

@@ -2,7 +2,7 @@
 #include"Admin.h"
 
 Admin::Admin(){
-	setRole("Admin");
+	setRole(1);
 }
 
 Client* Admin::addClient(){
@@ -57,5 +57,17 @@ string Admin::toString(){
 }
 
 int Admin::menu(){
-	return 0;
+	
+    int choice;
+    cout <<"ATM\n"
+         <<"~~~~~~~~~~~~~~~~~~\n"
+         <<"1. Add client\n"
+         <<"2. Add teller\n"
+		 <<"3. Add admin\n"
+		 <<"4. View log\n" //Audit
+         <<"5. EXIT\n"
+         <<"\nEnter your choice: ";
+    cin >>choice;
+    return choice;
+
 }

@@ -2,7 +2,7 @@
 #include"Teller.h"
 
 Teller::Teller(){
-	setRole("Teller");
+	setRole(2);
 }
 
 Client* Teller::addClient(){
@@ -17,12 +17,12 @@ Client* Teller::addClient(){
 	return a1;
 }
 
-void Teller::openAccount(){//ask for username and password call menu
+/*void Teller::openAccount(){//ask for username and password call menu
 	string id, pswd;
 	int choice;
 	cout<<"Please enter Clients ID and password: ";
 	cin>>id, pswd;
-	for(i=0; i<BankingProject->count;i++){
+	for(int i=0; i<BankingProject->count;i++){
 		if(BankingProject->accPTR[i].getRole()=="Client"){
 			if(BankingProject->accPTR[i].getID()==id && BankingProject->accPTR[i].getPass()==pswd){
 				do{
@@ -37,7 +37,7 @@ void Teller::openAccount(){//ask for username and password call menu
 		}
 	}	
 }
-
+*/
 void Teller::viewLog(){
 	//inprogress
 }
@@ -54,5 +54,15 @@ string Teller::toString(){
 }
 
 int Teller::menu(){
-	return 0;
+
+    int choice;
+    cout <<"ATM\n"
+         <<"~~~~~~~~~~~~~~~~~~\n"
+         <<"1. Add client\n"
+         <<"2. Open Account\n" //turns to client menu
+         <<"3. View log\n" //Audit
+         <<"4. EXIT\n"
+         <<"\nEnter your choice: ";
+    cin >>choice;
+    return choice;
 }
