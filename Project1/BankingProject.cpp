@@ -157,7 +157,7 @@ int main(int argc, char** argv) {
 				do{
 					choice=accPTR[i]->menu();
 					switch(accPTR[i]->getRole()){
-						case 1:
+						case 1://Admin
 							do {//choice controlled system
 							    system("Case");
 							    int option = accPTR[i]->menu();
@@ -171,6 +171,7 @@ int main(int argc, char** argv) {
 							      case 4:viewLog();
 							           break;
 							      case 4: cout <<"Goodbye";
+							      flag=0;
 							           break;
 							      default: cout << "Invalid option!\n";
 							    }
@@ -178,7 +179,7 @@ int main(int argc, char** argv) {
 							    system("PAUSE");
 							}while(option != 5);
 							break;
-						case 2:
+						case 2://Teller
 							string id, pswd;
 							
 							do { //choice controlled system
@@ -197,6 +198,7 @@ int main(int argc, char** argv) {
 										cout << "" <<Bal<<"\n";
 						                break;
 						            case 4: cout <<"Goodbye";
+						            	flag=0;
 						                break;
 						            default: cout << "Invalid option!\n";
 						        }
@@ -204,23 +206,24 @@ int main(int argc, char** argv) {
 						        system("PAUSE");
 						    }while(option != 4);
 							break;
-						case 3:
+						case 3://Client
 							do { //choice controlled system
 						        system("Case");
 						        option = menu();
 						        switch(option) {
 						        case 1:cout << "Enter Amount";
 									cin >> transaction;
-									Deposit();
+									accPTR[i].deposit(transaction);
 						            break;
 						        case 2:cout << "Enter Amount";
 						            cin >> transaction;
-									Withdraw();
+									accPTR[i].withdraw(transaction);
 						            break;
 						        case 3:viewBal();
 									cout << "" <<Bal<<"\n";
 						            break;
 						        case 4: cout <<"Goodbye";
+						        	flag=0;
 						            break;
 						        default: cout << "Invalid option!\n";
 						        }
