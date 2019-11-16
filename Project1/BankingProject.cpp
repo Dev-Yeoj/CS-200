@@ -7,7 +7,7 @@
 #include"Admin.h"
 
 /* run this program using the console pauser or add your own getch, system("pause") or input loop */
-
+/*
 string readAndDecrypt()
 {
 	char key = 'q';
@@ -135,16 +135,19 @@ int saveAndEncrypt()
 
 	return 0;
 }
-
+*/
 
 
 int main(int argc, char** argv) {
 	//variable initialization
 	Account* accPTR[100];
-	Admin* ad;
-	Teller* tell;
-	Client* cli;
+	Admin* adPTR[50];
+	Teller* telPTR[50];
+	Client* cliPTR[50];
 	int count=0;
+	int cliCount=0;
+	int telCount=0;
+	int adCount=0;	
 	int option;
 	int flag;
 	string id, pswd;
@@ -161,55 +164,60 @@ int main(int argc, char** argv) {
 				do{
 					switch(accPTR[i]->getRole()){
 						case 1://Admin
-						ad*=(Admin*)accPTR[i];
-							do {//choice controlled system
-							    system("CLS");
-							     option = accPTR[i]->menu();
-							    switch(option) {
-							      case 1:accPTR[i]->addClient();
-							           break;
-							      case 2: ad->addTeller();
-							           break;
-									case 3: ad->addAdmin();
-							           break;
-							      case 4:ad->viewLog();
-							           break;
-							      case 5: cout <<"Goodbye";
-							      flag=0;
-							           break;
-							      default: cout << "Invalid option!\n";
+							for(int j=0; i<adCount;i++){
+							if(accPTR[i]->getID()==id && accPTR[i]->getPass()==pswd){
+								do {//choice controlled system
+							    	system("CLS");
+							    	option = adPTR[j]->menu();
+							    	switch(option) {
+							    		case 1:adPTR[j]->addClient();
+							           		break;
+							      		case 2: adPTR[j]->addTeller();
+							           		break;
+										case 3: adPTR[j]->addAdmin();
+							           		break;
+							      		case 4:adPTR[j]->viewLog();
+							           		break;
+							      		case 5: cout <<"Goodbye";
+							      			flag=0;
+							           		break;
+							      		default: cout << "Invalid option!\n";
+							      	}
+							      }while(option != 5);
 							    }
 							    
 							    system("PAUSE");
-							}while(option != 5);
+							}
 							break;
 						case 2://Teller
 							break;
 						case 3://Client
-							cli*=(Client*)accPTR[i];
-							do { //choice controlled system
-						        system("CLS");
-						        option = cli->menu();
-						        switch(option) {
-						        case 1:cout << "Enter Amount";
-									cin >> transaction;
-									cli->deposit(transaction);
-						            break;
-						        case 2:cout << "Enter Amount";
-						            cin >> transaction;
-									accPTR[i]->withdraw(transaction);
-						            break;
-						        case 3:cli->getBal();
-									cout << "Current Balance: " <<cli->getBal()<<"\n";
-						            break;
-						        case 4: cout <<"Goodbye";
-						        	flag=0;
-						            break;
-						        default: cout << "Invalid option!\n";
-						        }
-						        
-						        system("PAUSE");
-						    }while(option != 4);
+							for(int j=0; i<adCount;i++){
+							if(accPTR[i]->getID()==id && accPTR[i]->getPass()==pswd){
+								do { //choice controlled system
+						    	    system("CLS");
+						    	    option = cli->menu();
+						    	    switch(option) {
+						    	    case 1:cout << "Enter Amount";
+										cin >> transaction;
+										cli->deposit(transaction);
+						       	    	break;
+						       		case 2:cout << "Enter Amount";
+						            	cin >> transaction;
+										accPTR[i]->withdraw(transaction);
+						            	break;
+						        	case 3:cli->getBal();
+										cout << "Current Balance: " <<cli->getBal()<<"\n";
+						            	break;
+						        	case 4: cout <<"Goodbye";
+						        		flag=0;
+						        	    break;
+						        	default: cout << "Invalid option!\n";
+						        	}
+						    	}while(option != 4);
+						    system("PAUSE");
+							}
+						    }
 							break;
 						default: break;
 					}
