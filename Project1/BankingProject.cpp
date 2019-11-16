@@ -396,7 +396,7 @@ int main(int argc, char** argv) {
 							}
 							break;
 						case 2://Teller
-							for(int j=0; i<telCount;i++){
+							for(int j=0; i<=telCount;i++){
 							if(telPTR[j]->getID()==id && telPTR[j]->getPass()==pswd){
 								do {//choice controlled system
 							    	system("CLS");
@@ -410,7 +410,7 @@ int main(int argc, char** argv) {
 							      		case 2: //open account
 											cout<<"Please enter Clients ID and password: ";
 											cin>>cliID, cliPSWD;
-											for(int x=0; x<cliCount;x++){
+											for(int x=0; x<=cliCount;x++){
 												if(cliPTR[x]->getID()==cliID && cliPTR[x]->getPass()==cliPSWD){
 													do { //choice controlled system
 						    		    				system("CLS");
@@ -449,7 +449,7 @@ int main(int argc, char** argv) {
 							}
 							break;
 						case 3://Client
-							for(int j=0; i<cliCount;i++){
+							for(int j=0; i<=cliCount;i++){
 								if(cliPTR[j]->getID()==id && cliPTR[j]->getPass()==pswd){
 									do { //choice controlled system
 						    		    system("CLS");
