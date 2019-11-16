@@ -362,7 +362,7 @@ int main(int argc, char** argv) {
 				do{
 					switch(accPTR[i]->getRole()){
 						case 1://Admin
-							for(int j=0; i<adCount;i++){
+							for(int j=0; i<=adCount;i++){
 							if(adPTR[j]->getID()==id && adPTR[j]->getPass()==pswd){
 								do {//choice controlled system
 							    	system("CLS");
