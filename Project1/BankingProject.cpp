@@ -25,12 +25,14 @@ int readAndDecrypt()
 	ifstream tellersFile;
 	ifstream clientsFile;
 	ifstream adminsFile;
-	string dataIn = "";
-	string decryptedData;
+
 	
-	
+//READING AND DECRYPTING ADMINS
+
 	adminsFile.open("adminList.txt");
     while ( !adminsFile.eof() ){           // Continue if the line was sucessfully read.
+    		string dataIn = "";
+			string decryptedData;
         getline(adminsFile,dataIn); // Try to get another line.
         if(dataIn.length() < 19)
         {
@@ -87,6 +89,135 @@ int readAndDecrypt()
         count++;
    		}
 }
+
+
+//READING AND DECRYPTING TELLERS
+
+	tellersFile.open("tellerList.txt");
+    while ( !tellersFile.eof() ){           // Continue if the line was sucessfully read.
+    		string dataIn = "";
+			string decryptedData;
+        getline(tellersFile,dataIn); // Try to get another line.
+        if(dataIn.length() < 19)
+        {
+        	break;	
+		}
+		else
+		{
+		
+    	for (int x = 0; x < dataIn.length(); x++) //For loop to decrypt full line at a time -> decryptedDataNew
+    		{
+        		decryptedData += dataIn[x] ^ key;
+        	}
+        	
+        cout<<"\nDecrypted shit: "<<decryptedData;
+		std::string delimiter = " ";
+		string dob, first, last, ID, pswd;
+		for(int a=0; a<5; a++)
+			{
+				std::string token = decryptedData.substr(0, decryptedData.find(delimiter));
+				decryptedData.erase(0, decryptedData.find(delimiter) + delimiter.length());
+				switch(a)
+				{
+					case 0: ID = token;
+					cout<<"\nset ID as \""<<ID<<"\""<<endl;
+						break;
+					case 1: pswd = token;
+					cout<<"set PSWD as \""<<pswd<<"\""<<endl;
+						break;
+					case 2: first = token;
+					cout<<"set first as \""<<first<<"\""<<endl;
+						break;
+					case 3: last = token;
+					cout<<"set last as \""<<last<<"\""<<endl;
+						break;
+					case 4: dob = token;
+					cout<<"set dob as \""<<dob<<"\""<<endl;
+						break;
+					default:
+						cout<<"Problem"<<endl;
+						break;
+				}
+				//cout<<"\n"<<token;
+			}
+			Teller* a1 = new Teller;
+			a1->setID(ID);
+			a1->setPass(pswd);
+			a1->setDOB(dob);
+			a1->setFullNm(first, last);
+			telPTR[telCount]= a1;
+			accPTR[count]= a1;
+						
+        decryptedData.erase(0,20);
+        telCount++;
+        count++;
+   		}
+}
+
+
+
+//READING AND DECRYPTING CLIENTS
+	clientsFile.open("clientList.txt");
+    while ( !clientsFile.eof() ){           // Continue if the line was sucessfully read.
+    		string dataIn = "";
+			string decryptedData;
+        getline(clientsFile,dataIn); // Try to get another line.
+        if(dataIn.length() < 19)
+        {
+        	break;	
+		}
+		else
+		{
+		
+    	for (int x = 0; x < dataIn.length(); x++) //For loop to decrypt full line at a time -> decryptedDataNew
+    		{
+        		decryptedData += dataIn[x] ^ key;
+        	}
+        	
+        cout<<"\nDecrypted shit: "<<decryptedData;
+		std::string delimiter = " ";
+		string dob, first, last, ID, pswd;
+		for(int a=0; a<5; a++)
+			{
+				std::string token = decryptedData.substr(0, decryptedData.find(delimiter));
+				decryptedData.erase(0, decryptedData.find(delimiter) + delimiter.length());
+				switch(a)
+				{
+					case 0: ID = token;
+					cout<<"\nset ID as \""<<ID<<"\""<<endl;
+						break;
+					case 1: pswd = token;
+					cout<<"set PSWD as \""<<pswd<<"\""<<endl;
+						break;
+					case 2: first = token;
+					cout<<"set first as \""<<first<<"\""<<endl;
+						break;
+					case 3: last = token;
+					cout<<"set last as \""<<last<<"\""<<endl;
+						break;
+					case 4: dob = token;
+					cout<<"set dob as \""<<dob<<"\""<<endl;
+						break;
+					default:
+						cout<<"Problem"<<endl;
+						break;
+				}
+				//cout<<"\n"<<token;
+			}
+			Client* a1 = new Client;
+			a1->setID(ID);
+			a1->setPass(pswd);
+			a1->setDOB(dob);
+			a1->setFullNm(first, last);
+			cliPTR[cliCount]= a1;
+			accPTR[count]= a1;
+						
+        decryptedData.erase(0,20);
+        cliCount++;
+        count++;
+   		}
+}
+
 
 	return 0;
 	}
