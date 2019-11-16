@@ -225,6 +225,10 @@ int readAndDecrypt()
 
 string saveAndEncrypt()
 {
+
+if(count>=0)
+{
+
 	try{
 	
 	char key = 'q'; //Key to be used with XOR algorithm
@@ -243,7 +247,7 @@ string saveAndEncrypt()
 	//cliPTR   =   The pointer array of clients
 	//decrypt and load
 
-	cout<<"Saving and encrypting contents. . ."<<endl;
+	cout<<"\nSaving and encrypting contents. . ."<<endl;
 
 	adminsFile.open("adminList.txt");
 	//In this for loop the "i" represents which admin in the array of admins
@@ -298,7 +302,11 @@ string saveAndEncrypt()
 	catch( const std::exception & ex ){
     cerr << ex.what() << endl;
 	}
-
+}
+else
+{
+	cout<<"Nothing to save. . ."<<endl;
+}
 	return "Contents saved and encrypted!";
 }
 
@@ -466,15 +474,21 @@ int main(int argc, char** argv) {
 								}
 						    }
 							break;
-						default: break;
+						default: cout<<"Defaulted to break"<<endl; break;
 					}
 				system("CLS");
 				}while(flag==1);
 			}
+			else
+			{
+				cout<<"Login does not exist."<<endl;
+				break;
+			}
+			
 		}	
-	}while(id!="exit");//This is correct but the program does not exit because CIN doesn't input blank spaces.
+	}while(id!="exit");
 	//encrypt and write
-	
+	cout<<saveAndEncrypt();
 	//cout<<saveAndEncrypt();
 	return 0;
 }
