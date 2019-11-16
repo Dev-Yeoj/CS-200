@@ -213,7 +213,7 @@ int main(int argc, char** argv) {
 	//login & menu
 	do{
 		flag=1;
-		cout<<"Please enter account ID and password(to exit program leave blank): ";
+		cout<<"Please enter account ID and password(to exit program enter username as exit): ";
 		cin>>id, pswd;
 		for(int i=0; i<count;i++){
 			if(accPTR[i]->getID()==id && accPTR[i]->getPass()==pswd){
@@ -340,7 +340,7 @@ int main(int argc, char** argv) {
 				}while(flag==1);
 			}
 		}	
-	}while(id!="");//This is correct but the program does not exit because CIN doesn't input blank spaces.
+	}while(id!="exit");//This is correct but the program does not exit because CIN doesn't input blank spaces.
 	//encrypt and write
 	
 	cout<<saveAndEncrypt();
