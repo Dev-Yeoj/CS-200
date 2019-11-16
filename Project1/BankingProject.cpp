@@ -152,6 +152,9 @@ int main(int argc, char** argv) {
 	int flag;
 	string id, pswd;
 	double transaction;
+	string cliID; 
+	string cliPSWD;
+	int opt2;
 	//decrypt and load
 	
 	//login & menu
@@ -211,9 +214,6 @@ int main(int argc, char** argv) {
 							    			count++;
 							           		break;
 							      		case 2: //open account
-							      			string cliID; 
-											string cliPSWD;
-							      			int opt2;
 											cout<<"Please enter Clients ID and password: ";
 											cin>>cliID, cliPSWD;
 											for(int x=0; x<cliCount;x++){
