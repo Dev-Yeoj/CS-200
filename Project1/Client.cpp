@@ -6,6 +6,10 @@ Client::Client(){
 	setRole(3);
 }
 
+double Client::getBal(){
+	return this->bal;
+}
+
 void Client::deposit(double amount){
 	this->bal+= amount;
 }

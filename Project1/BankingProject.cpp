@@ -7,7 +7,7 @@
 #include"Admin.h"
 
 /* run this program using the console pauser or add your own getch, system("pause") or input loop */
-
+/*
 string readAndDecrypt()
 {
 	char key = 'q';
@@ -135,7 +135,7 @@ int saveAndEncrypt()
 
 	return 0;
 }
-
+*/
 
 
 int main(int argc, char** argv) {
