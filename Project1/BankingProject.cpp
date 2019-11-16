@@ -165,7 +165,7 @@ int main(int argc, char** argv) {
 					switch(accPTR[i]->getRole()){
 						case 1://Admin
 							for(int j=0; i<adCount;i++){
-							if(accPTR[i]->getID()==id && accPTR[i]->getPass()==pswd){
+							if(adPTR[j]->getID()==id && adPTR[j]->getPass()==pswd){
 								do {//choice controlled system
 							    	system("CLS");
 							    	option = adPTR[j]->menu();
@@ -192,22 +192,22 @@ int main(int argc, char** argv) {
 						case 2://Teller
 							break;
 						case 3://Client
-							for(int j=0; i<adCount;i++){
-							if(accPTR[i]->getID()==id && accPTR[i]->getPass()==pswd){
+							for(int j=0; i<cliCount;i++){
+							if(cliPTR[j]->getID()==id && cliPTR[j]->getPass()==pswd){
 								do { //choice controlled system
 						    	    system("CLS");
-						    	    option = cli->menu();
+						    	    option = cliPTR[j]->menu();
 						    	    switch(option) {
 						    	    case 1:cout << "Enter Amount";
 										cin >> transaction;
-										cli->deposit(transaction);
+										cliPTR[j]->deposit(transaction);
 						       	    	break;
 						       		case 2:cout << "Enter Amount";
 						            	cin >> transaction;
-										accPTR[i]->withdraw(transaction);
+										cliPTR[j]->withdraw(transaction);
 						            	break;
-						        	case 3:cli->getBal();
-										cout << "Current Balance: " <<cli->getBal()<<"\n";
+						        	case 3:cliPTR[j]->getBal();
+										cout << "Current Balance: " <<cliPTR[j]->getBal()<<"\n";
 						            	break;
 						        	case 4: cout <<"Goodbye";
 						        		flag=0;
