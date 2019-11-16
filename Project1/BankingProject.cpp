@@ -224,7 +224,7 @@ int main(int argc, char** argv) {
 							    			telCount++;
 							    			count++;
 							           		break;
-										case 3: adPTR[cliCount]=adPTR[j]->addAdmin();		//I could be wrong but I beleive that adPTR[cliCount] should be adPTR[adCount]
+										case 3: adPTR[adCount]=adPTR[j]->addAdmin();		//I could be wrong but I beleive that adPTR[cliCount] should be adPTR[adCount]
 											accPTR[count]=adPTR[cliCount];
 							    			adCount++;
 							    			count++;
