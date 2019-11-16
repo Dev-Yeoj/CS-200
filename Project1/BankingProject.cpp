@@ -170,11 +170,20 @@ int main(int argc, char** argv) {
 							    	system("CLS");
 							    	option = adPTR[j]->menu();
 							    	switch(option) {
-							    		case 1:adPTR[j]->addClient();
+							    		case 1:cliPTR[cliCount]=adPTR[j]->addClient();
+							    			accPTR[count]=cliPTR[cliCount];
+							    			cliCount++;
+							    			count++;
 							           		break;
-							      		case 2: adPTR[j]->addTeller();
+							      		case 2: telPTR[telCount]=adPTR[j]->addTeller();
+							      			accPTR[count]=telPTR[telCount];
+							    			telCount++;
+							    			count++;
 							           		break;
-										case 3: adPTR[j]->addAdmin();
+										case 3: adPTR[cliCount]=adPTR[j]->addAdmin();
+											accPTR[count]=adPTR[cliCount];
+							    			adCount++;
+							    			count++;
 							           		break;
 							      		case 4:adPTR[j]->viewLog();
 							           		break;
