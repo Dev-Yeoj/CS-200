@@ -97,10 +97,11 @@ int readAndDecrypt()
 	tellersFile.open("tellerList.txt");
     while ( !tellersFile.eof() ){           // Continue if the line was sucessfully read.
     		string dataIn = "";
-			string decryptedData;
+			string decryptedData = "";
         getline(tellersFile,dataIn); // Try to get another line.
         if(dataIn.length() < 19)
         {
+        	
         	break;	
 		}
 		else
@@ -111,7 +112,7 @@ int readAndDecrypt()
         		decryptedData += dataIn[x] ^ key;
         	}
         	
-        cout<<"\nDecrypted shit: "<<decryptedData;
+        cout<<"\nDecrypted shit (teller): "<<decryptedData;
 		std::string delimiter = " ";
 		string dob, first, last, ID, pswd;
 		for(int a=0; a<5; a++)
@@ -141,13 +142,13 @@ int readAndDecrypt()
 				}
 				//cout<<"\n"<<token;
 			}
-			Teller* a1 = new Teller;
-			a1->setID(ID);
-			a1->setPass(pswd);
-			a1->setDOB(dob);
-			a1->setFullNm(first, last);
-			telPTR[telCount]= a1;
-			accPTR[count]= a1;
+			Teller* t1 = new Teller;
+			t1->setID(ID);
+			t1->setPass(pswd);
+			t1->setDOB(dob);
+			t1->setFullNm(first, last);
+			telPTR[telCount]= t1;
+			accPTR[count]= t1;
 						
         decryptedData.erase(0,20);
         telCount++;
@@ -161,11 +162,11 @@ int readAndDecrypt()
 	clientsFile.open("clientList.txt");
     while ( !clientsFile.eof() ){           // Continue if the line was sucessfully read.
     		string dataIn = "";
-			string decryptedData;
+			string decryptedData = "";
         getline(clientsFile,dataIn); // Try to get another line.
         if(dataIn.length() < 19)
         {
-        	break;	
+        	break;
 		}
 		else
 		{
@@ -175,7 +176,7 @@ int readAndDecrypt()
         		decryptedData += dataIn[x] ^ key;
         	}
         	
-        cout<<"\nDecrypted shit: "<<decryptedData;
+        cout<<"\nDecrypted shit(client): "<<decryptedData;
 		std::string delimiter = " ";
 		string dob, first, last, ID, pswd;
 		for(int a=0; a<5; a++)
@@ -205,13 +206,13 @@ int readAndDecrypt()
 				}
 				//cout<<"\n"<<token;
 			}
-			Client* a1 = new Client;
-			a1->setID(ID);
-			a1->setPass(pswd);
-			a1->setDOB(dob);
-			a1->setFullNm(first, last);
-			cliPTR[cliCount]= a1;
-			accPTR[count]= a1;
+			Client* c1 = new Client;
+			c1->setID(ID);
+			c1->setPass(pswd);
+			c1->setDOB(dob);
+			c1->setFullNm(first, last);
+			cliPTR[cliCount]= c1;
+			accPTR[count]= c1;
 						
         decryptedData.erase(0,20);
         cliCount++;
@@ -272,34 +273,52 @@ if(count>=0)
 	adminsFile.close();
 
 
-
-
 	tellersFile.open("tellerList.txt");
+	//In this for loop the "i" represents which admin in the array of admins
+	INFO = "";
 	for(int i=0; i < telCount; i++)
 	{
+		//In this for loop the "x" a single character in the string of adPTR[i]
 		for (int x = 0; x <telPTR[i]->toString().length(); x++)
     		{
         		INFO += telPTR[i]->toString()[x] ^ key;
         	}
-        tellersFile <<INFO<<"\n";
+        
+		if(i == telCount-1)
+		{
+			tellersFile <<INFO;
+		}
+		else
+		{
+			tellersFile <<INFO<<"\n";
+		}
 	}
 	tellersFile.close();
 
-
-
-
 	clientsFile.open("clientList.txt");
+	//In this for loop the "i" represents which admin in the array of admins
+	INFO = "";
 	for(int i=0; i < cliCount; i++)
 	{
+		//In this for loop the "x" a single character in the string of adPTR[i]
 		for (int x = 0; x <cliPTR[i]->toString().length(); x++)
     		{
         		INFO += cliPTR[i]->toString()[x] ^ key;
         	}
-        clientsFile <<INFO<<"\n";
+        
+		if(i == cliCount-1)
+		{
+			clientsFile <<INFO;
+		}
+		else
+		{
+			clientsFile <<INFO<<"\n";
+		}
 	}
 	clientsFile.close();
-}
 
+
+}
 	catch( const std::exception & ex ){
     cerr << ex.what() << endl;
 	}
@@ -357,6 +376,7 @@ int main(int argc, char** argv) {
 		cout<<"Please enter account ID and password(to exit program enter username as exit): ";
 		cin>>id>> pswd;
 		for(int i=0; i<=count;i++){
+			//cout<<"client ptr= "<<cliPTR[0]->getID()<<cliPTR[0]->getPass()<<endl;
 			if(accPTR[i]->getID()==id && accPTR[i]->getPass()==pswd){
 				Audit::loginLog(accPTR[i]->getRole(), accPTR[i]->getFullNm());
 				do{
@@ -450,6 +470,7 @@ int main(int argc, char** argv) {
 							break;
 						case 3://Client
 							for(int j=0; i<=cliCount;i++){
+								cout<<"CLient username and password: "<<cliPTR[0]->getID()<<cliPTR[0]->getPass()<<endl;
 								if(cliPTR[j]->getID()==id && cliPTR[j]->getPass()==pswd){
 									do { //choice controlled system
 						    		    system("CLS");
@@ -483,9 +504,9 @@ int main(int argc, char** argv) {
 			}
 			else
 			{
-				cout<<"Login does not exist."<<endl;
-				break;
+				cout<<"Login doesn't exist or the program hasn't parsed entire array"<<endl;
 			}
+
 			
 		}	
 	}while(id!="exit");
