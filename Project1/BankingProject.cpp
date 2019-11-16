@@ -238,6 +238,9 @@ int main(int argc, char** argv) {
 							           		break;
 <<<<<<< HEAD
 										case 3: adPTR[adCount]=adPTR[j]->addAdmin();		//I could be wrong but I beleive that adPTR[cliCount] should be adPTR[adCount]
+=======
+										case 3: adPTR[adCount]=adPTR[j]->addAdmin();
+>>>>>>> 9d386b2a86b8facb041bf53fc109fc81544d94c6
 											accPTR[count]=adPTR[cliCount];
 							    			adCount++;
 							    			count++;
