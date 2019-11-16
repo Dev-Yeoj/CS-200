@@ -199,33 +199,88 @@ int main(int argc, char** argv) {
 							}
 							break;
 						case 2://Teller
+							for(int j=0; i<telCount;i++){
+							if(telPTR[j]->getID()==id && telPTR[j]->getPass()==pswd){
+								do {//choice controlled system
+							    	system("CLS");
+							    	option = telPTR[j]->menu();
+							    	switch(option) {
+							    		case 1:cliPTR[cliCount]=telPTR[j]->addClient();
+							    			accPTR[count]=cliPTR[cliCount];
+							    			cliCount++;
+							    			count++;
+							           		break;
+							      		case 2: //open account
+							      			string cliID; 
+											string cliPSWD;
+							      			int opt2;
+											cout<<"Please enter Clients ID and password: ";
+											cin>>cliID, cliPSWD;
+											for(int x=0; x<cliCount;x++){
+												if(cliPTR[x]->getID()==cliID && cliPTR[x]->getPass()==cliPSWD){
+													do { //choice controlled system
+						    		    				system("CLS");
+						    		    				opt2 = cliPTR[x]->menu();
+						    		    				switch(opt2) {
+						    			    				case 1:cout << "Enter Amount";
+																cin >> transaction;
+																cliPTR[x]->deposit(transaction);
+						    		   	    					break;
+						       								case 2:cout << "Enter Amount";
+						            							cin >> transaction;
+																cliPTR[x]->withdraw(transaction);
+						           			 					break;
+						        							case 3:cliPTR[x]->getBal();
+																cout << "Current Balance: " <<cliPTR[x]->getBal()<<"\n";
+						            							break;
+						        							case 4: cout <<"Goodbye";
+						        	    						break;
+						        							default: cout << "Invalid option!\n";
+						        						}
+						    						}while(opt2 != 4);
+						    						system("PAUSE");
+												}
+						    				}//end of open account
+							           		break;
+										case 3: telPTR[j]->viewLog();
+							           		break;
+							      		case 4: cout <<"Goodbye";
+							      			flag=0;
+							           		break;
+							      		default: cout << "Invalid option!\n";
+							      	}
+							      }while(option != 4);
+							    }
+							    
+							    system("PAUSE");
+							}
 							break;
 						case 3://Client
 							for(int j=0; i<cliCount;i++){
-							if(cliPTR[j]->getID()==id && cliPTR[j]->getPass()==pswd){
-								do { //choice controlled system
-						    	    system("CLS");
-						    	    option = cliPTR[j]->menu();
-						    	    switch(option) {
-						    	    case 1:cout << "Enter Amount";
-										cin >> transaction;
-										cliPTR[j]->deposit(transaction);
-						       	    	break;
-						       		case 2:cout << "Enter Amount";
-						            	cin >> transaction;
-										cliPTR[j]->withdraw(transaction);
-						            	break;
-						        	case 3:cliPTR[j]->getBal();
-										cout << "Current Balance: " <<cliPTR[j]->getBal()<<"\n";
-						            	break;
-						        	case 4: cout <<"Goodbye";
-						        		flag=0;
-						        	    break;
-						        	default: cout << "Invalid option!\n";
-						        	}
-						    	}while(option != 4);
-						    system("PAUSE");
-							}
+								if(cliPTR[j]->getID()==id && cliPTR[j]->getPass()==pswd){
+									do { //choice controlled system
+						    		    system("CLS");
+						    		    option = cliPTR[j]->menu();
+						    		    switch(option) {
+						    			    case 1:cout << "Enter Amount";
+												cin >> transaction;
+												cliPTR[j]->deposit(transaction);
+						    		   	    	break;
+						       				case 2:cout << "Enter Amount";
+						            			cin >> transaction;
+												cliPTR[j]->withdraw(transaction);
+						           			 	break;
+						        			case 3:cliPTR[j]->getBal();
+												cout << "Current Balance: " <<cliPTR[j]->getBal()<<"\n";
+						            			break;
+						        			case 4: cout <<"Goodbye";
+						        				flag=0;
+						        	    		break;
+						        			default: cout << "Invalid option!\n";
+						        		}
+						    		}while(option != 4);
+						    	system("PAUSE");
+								}
 						    }
 							break;
 						default: break;
