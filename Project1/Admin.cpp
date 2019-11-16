@@ -42,7 +42,14 @@ Admin* Admin::addAdmin(){
 }
 
 void Admin::viewLog(){
-	//inprogress
+	ifstream inData;
+	string data;
+    inData.open("loginLog.txt");
+	while (!inData.eof()) {
+		getline(inData, data);
+		data += data;
+	}
+	cout<<data;
 }
 
 void Admin::print(){
