@@ -6,17 +6,22 @@
 #include"Teller.h"
 #include"Admin.h"
 
+//WARNING CURRENTLY WE DO NOT HAVE A METHOD TO SAVE THE AMOUNT OF USERS CREATED WHICH MEANS IF YOU CREATE A NEW ADMIN ACCOUNT YOU MAY OVERWRITE THE EXISTING
+//ROOT ACCOUNT AND REPLACE IT WITH THE ACCOUNT YOU JUST MADE
+
+//also theres no way to tell what account type the accounts that are read in from files are
+
 //GLOBAL VARIABLES
 	int cliCount=0;
 	int telCount=0;
 	int adCount=0;
-	int accCount=cliCount+telCount+adCount;
+	int count=0;
 	Account* accPTR[100];
 	Admin* adPTR[50];
 	Teller* telPTR[50];
 	Client* cliPTR[50];
 	
-/*	
+	
 string readAndDecrypt()
 {
 	char key = 'q';
@@ -30,10 +35,10 @@ string readAndDecrypt()
 	
 	
 	adminsFile.open("adminList.txt");
-    getline(adminsFile,dataIn);  // Get the frist line from the file, if any.
-    while ( adminsFile ){  // Continue if the line was sucessfully read.
-    	//processLine(dataIn);  // Process the line.
-        getline(adminsFile,dataIn);   // Try to get another line.
+    getline(adminsFile,dataIn);     // Get the frist line from the file, if any.
+    while ( adminsFile ){           // Continue if the line was sucessfully read.
+    	//processLine(dataIn);      // Process the line.
+        getline(adminsFile,dataIn); // Try to get another line.
 }
 	string test;
 	getline(adminsFile,test);
@@ -80,7 +85,7 @@ string readAndDecrypt()
 	
 	return decryptedData;
 	}
-*/
+
 
 string saveAndEncrypt()
 {
@@ -153,13 +158,24 @@ string saveAndEncrypt()
 	return "Contents saved and encrypted!";
 }
 
+bool doesExist(const char *fileName)
+{
+    std::ifstream infile(fileName);
+    return infile.good();
+}
 
+string makeRoot(){
+	adPTR[adCount]=adPTR[0]->addAdmin();
+	accPTR[count]=adPTR[cliCount];
+	adCount++;
+	count++;
+	return "\nRoot created.";
+}
 
 int main(int argc, char** argv) {
 	//variable initialization
 	//MOVED ARRAYS AND COUNTERS TO GLOBAL
-
-	int count=0;
+	
 	int option;
 	int flag;
 	string id, pswd;
@@ -167,8 +183,21 @@ int main(int argc, char** argv) {
 	string cliID; 
 	string cliPSWD;
 	int opt2;
-	//decrypt and load
+	//Check for root account
+	if(doesExist("adminList.txt") && doesExist("clientList.txt") && doesExist("tellerList.txt")){
+		cout<<"Root account exists, moving to login page. . ."<<endl;
+	}
+	else{
+		cout<<"Root account does not exist. Lets create one.\n"<<endl;
+		//root account creation function
+		cout<<makeRoot()<<endl;
+		saveAndEncrypt();
+		cout<<"Please restart program :)"<<endl;
+		exit(0);
+	}
 	
+	//decrypt and load
+	cout<<"Read and decrypted data: "<<readAndDecrypt()<<endl;
 	//login & menu
 	do{
 		flag=1;
@@ -195,7 +224,7 @@ int main(int argc, char** argv) {
 							    			telCount++;
 							    			count++;
 							           		break;
-										case 3: adPTR[cliCount]=adPTR[j]->addAdmin();
+										case 3: adPTR[cliCount]=adPTR[j]->addAdmin();		//I could be wrong but I beleive that adPTR[cliCount] should be adPTR[adCount]
 											accPTR[count]=adPTR[cliCount];
 							    			adCount++;
 							    			count++;
@@ -299,7 +328,7 @@ int main(int argc, char** argv) {
 				}while(flag==1);
 			}
 		}	
-	}while(id!="69");//This is correct but the program does not exit because CIN doesn't input blank spaces.
+	}while(id!="");//This is correct but the program does not exit because CIN doesn't input blank spaces.
 	//encrypt and write
 	
 	cout<<saveAndEncrypt();
