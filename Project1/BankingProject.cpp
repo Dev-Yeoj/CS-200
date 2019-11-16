@@ -5,6 +5,7 @@
 #include"Client.h"
 #include"Teller.h"
 #include"Admin.h"
+#include"Audit.h"
 
 //GLOBAL VARIABLES
 	int cliCount=0;
@@ -357,6 +358,7 @@ int main(int argc, char** argv) {
 		cin>>id>> pswd;
 		for(int i=0; i<=count;i++){
 			if(accPTR[i]->getID()==id && accPTR[i]->getPass()==pswd){
+				Audit::loginLog(accPTR[i]->getRole(), accPTR[i]->getFullNm());
 				do{
 					switch(accPTR[i]->getRole()){
 						case 1://Admin
