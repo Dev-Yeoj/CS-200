@@ -412,6 +412,7 @@ int main(int argc, char** argv) {
 											cin>>cliID, cliPSWD;
 											for(int x=0; x<=cliCount;x++){
 												if(cliPTR[x]->getID()==cliID && cliPTR[x]->getPass()==cliPSWD){
+													Audit::openAccLog(telPTR[j], cliPTR[x]);
 													do { //choice controlled system
 						    		    				system("CLS");
 						    		    				opt2 = cliPTR[x]->menu();
