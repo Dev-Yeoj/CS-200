@@ -197,7 +197,6 @@ int main(int argc, char** argv) {
 							      	}
 							      }while(option != 5);
 							    }
-							    
 							    system("PAUSE");
 							}
 							break;
@@ -251,7 +250,6 @@ int main(int argc, char** argv) {
 							      	}
 							      }while(option != 4);
 							    }
-							    
 							    system("PAUSE");
 							}
 							break;
@@ -287,9 +285,7 @@ int main(int argc, char** argv) {
 					}
 				system("CLS");
 				}while(flag==1);
-				
 			}
-			
 		}	
 	}while(id!="");
 	//encrypt and write
