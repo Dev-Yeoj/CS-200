@@ -225,7 +225,7 @@ int main(int argc, char** argv) {
 						    			    				case 1:cout << "Enter Amount";
 																cin >> transaction;
 																cliPTR[x]->deposit(transaction);
-						    		   	    					break;
+																break;
 						       								case 2:cout << "Enter Amount";
 						            							cin >> transaction;
 																cliPTR[x]->withdraw(transaction);

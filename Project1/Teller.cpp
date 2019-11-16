@@ -17,27 +17,6 @@ Client* Teller::addClient(){
 	return a1;
 }
 
-/*void Teller::openAccount(){//ask for username and password call menu
-	string id, pswd;
-	int choice;
-	cout<<"Please enter Clients ID and password: ";
-	cin>>id, pswd;
-	for(int i=0; i<BankingProject->count;i++){
-		if(BankingProject->accPTR[i].getRole()=="Client"){
-			if(BankingProject->accPTR[i].getID()==id && BankingProject->accPTR[i].getPass()==pswd){
-				do{
-					choice=BankingProject->accPTR[i].menu();
-					switch(choice){
-						case 1://...
-					}
-					system("CLS");
-				}while(choice!=4);
-				
-			}
-		}
-	}	
-}
-*/
 void Teller::viewLog(){
 	//inprogress
 }

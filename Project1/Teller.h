@@ -7,7 +7,6 @@ class Teller:public Account{
 	public:
 		Teller();
 		Client* addClient();
-		//void openAccount();
 		void print();
 		void viewLog();
 		string toString();

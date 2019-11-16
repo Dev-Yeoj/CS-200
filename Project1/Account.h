@@ -13,7 +13,7 @@ class Account
 		string lastName;
 		string DOB;
 		string password;
-		int role;
+		int role;//admin 1 teller 2 client 3
 		
 	public:
 		Account();
