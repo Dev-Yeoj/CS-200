@@ -215,7 +215,7 @@ int main(int argc, char** argv) {
 	do{
 		flag=1;
 		cout<<"Please enter account ID and password(to exit program enter username as exit): ";
-		cin>>id, pswd;
+		cin>>id>> pswd;
 		for(int i=0; i<count;i++){
 			if(accPTR[i]->getID()==id && accPTR[i]->getPass()==pswd){
 				do{
