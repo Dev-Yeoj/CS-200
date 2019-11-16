@@ -416,7 +416,7 @@ int main(int argc, char** argv) {
 							}
 							break;
 						case 2://Teller
-							for(int j=0; i<=telCount;i++){
+							for(int j=0; j<=telCount;j++){
 							if(telPTR[j]->getID()==id && telPTR[j]->getPass()==pswd){
 								do {//choice controlled system
 							    	system("CLS");
