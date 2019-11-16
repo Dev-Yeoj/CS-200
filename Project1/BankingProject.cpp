@@ -6,11 +6,6 @@
 #include"Teller.h"
 #include"Admin.h"
 
-//WARNING CURRENTLY WE DO NOT HAVE A METHOD TO SAVE THE AMOUNT OF USERS CREATED WHICH MEANS IF YOU CREATE A NEW ADMIN ACCOUNT YOU MAY OVERWRITE THE EXISTING
-//ROOT ACCOUNT AND REPLACE IT WITH THE ACCOUNT YOU JUST MADE
-
-//also theres no way to tell what account type the accounts that are read in from files are
-
 //GLOBAL VARIABLES
 	int cliCount=0;
 	int telCount=0;
@@ -24,6 +19,7 @@
 	
 string readAndDecrypt()
 {
+	//TODO: input read data directly to classes
 	char key = 'q';
 	//ofstream adminsFile;
 	ifstream tellersFile;
@@ -31,58 +27,66 @@ string readAndDecrypt()
 	ifstream adminsFile;
 	string dataIn;
 	string decryptedData;
+	string decryptedDataNew;
 	string space = " ";
 	
 	
 	adminsFile.open("adminList.txt");
-    getline(adminsFile,dataIn);     // Get the frist line from the file, if any.
     while ( adminsFile ){           // Continue if the line was sucessfully read.
-    	//processLine(dataIn);      // Process the line.
-        getline(adminsFile,dataIn); // Try to get another line.
-}
-	string test;
-	getline(adminsFile,test);
-	cout<<test<<endl;
-    for (int x = 0; x < dataIn.length(); x++)
-    	{
-        	decryptedData += dataIn[x] ^ key;
-        }
-			decryptedData += space;
-	
-	
-	
-	tellersFile.open("tellerList.txt");
-    getline(tellersFile,dataIn);  // Get the frist line from the file, if any.
-    while ( tellersFile ){  // Continue if the line was sucessfully read.
-    	//processLine(dataIn);  // Process the line.
-        getline(tellersFile,dataIn);   // Try to get another line.
+    	string dataInNew = "";
+        getline(adminsFile,dataInNew); // Try to get another line.
+        if(dataInNew.length() < 19)
+        {
+        	break;	
+		}
+		else
+		{
+		
+    	for (int x = 0; x < dataInNew.length(); x++) //For loop to decrypt full line at a time -> decryptedDataNew
+    		{
+        		decryptedDataNew += dataInNew[x] ^ key;
+        	}
+        	
+        cout<<"\nDecrypted shit: "<<decryptedDataNew;
+		std::string delimiter = " ";
+		string dob, first, last, ID, pswd;
+		for(int a=0; a<5; a++)
+			{
+				std::string token = decryptedDataNew.substr(0, decryptedDataNew.find(delimiter));
+				decryptedDataNew.erase(0, decryptedDataNew.find(delimiter) + delimiter.length());
+				switch(a)
+				{
+					case 0: ID = token;
+						break;
+					case 1: pswd = token;
+						break;
+					case 2: first = token;
+						break;
+					case 3: last = token;
+						break;
+					case 4: dob = token;
+						break;
+					default:
+						cout<<"Problem"<<endl;
+						break;
+				}
+				cout<<"passed switch statment"<<endl;
+				//cout<<"\n"<<token;
+			}
+			Admin* a1 = new Admin;
+			a1->setID(ID);
+			a1->setPass(pswd);
+			a1->setDOB(dob);
+			a1->setFullNm(first, last);
+			adPTR[adCount]= a1;
+			accPTR[count]= a1;
+						
+        decryptedDataNew.erase(0,20);
+        adCount++;
+        count++;
+   		}
 }
 
-    for (int x = 0; x < dataIn.length(); x++)
-    	{
-        	decryptedData += dataIn[x] ^ key;
-        }
-			decryptedData += space;
-			
-			
-	clientsFile.open("clientList.txt");
-    getline(clientsFile,dataIn);  // Get the frist line from the file, if any.
-    while ( clientsFile ){  // Continue if the line was sucessfully read.
-    	//processLine(dataIn);  // Process the line.
-        getline(clientsFile,dataIn);   // Try to get another line.
-}
-
-    for (int x = 0; x < dataIn.length(); x++)
-    	{
-        	decryptedData += dataIn[x] ^ key;
-        }
-
-                 
-                 
-     
-	
-	
-	
 	return decryptedData;
 	}
 
@@ -118,7 +122,15 @@ string saveAndEncrypt()
     		{
         		INFO += adPTR[i]->toString()[x] ^ key;
         	}
-        adminsFile <<INFO<<" "; 
+        
+		if(i == adCount-1)
+		{
+			adminsFile <<INFO;
+		}
+		else
+		{
+			adminsFile <<INFO<<"\n";
+		}
 	}
 	adminsFile.close();
 
@@ -132,7 +144,7 @@ string saveAndEncrypt()
     		{
         		INFO += telPTR[i]->toString()[x] ^ key;
         	}
-        tellersFile <<INFO<<" ";
+        tellersFile <<INFO<<"\n";
 	}
 	tellersFile.close();
 
@@ -146,7 +158,7 @@ string saveAndEncrypt()
     		{
         		INFO += cliPTR[i]->toString()[x] ^ key;
         	}
-        clientsFile <<INFO<<" ";
+        clientsFile <<INFO<<"\n";
 	}
 	clientsFile.close();
 }
@@ -165,8 +177,8 @@ bool doesExist(const char *fileName)
 }
 
 string makeRoot(){
-	adPTR[adCount]=adPTR[0]->addAdmin();
-	accPTR[count]=adPTR[cliCount];
+	adPTR[adCount]=adPTR[adCount]->addAdmin();
+	accPTR[count]=adPTR[adCount];
 	adCount++;
 	count++;
 	return "\nRoot created.";
@@ -197,7 +209,7 @@ int main(int argc, char** argv) {
 	}
 	
 	//decrypt and load
-	cout<<"Read and decrypted data: "<<readAndDecrypt()<<endl;
+	readAndDecrypt();
 	//login & menu
 	do{
 		flag=1;
