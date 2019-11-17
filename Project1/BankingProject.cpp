@@ -47,7 +47,7 @@ int readAndDecrypt()
         		decryptedData += dataIn[x] ^ key;
         	}
         	
-        cout<<"\nDecrypted shit: "<<decryptedData;
+        cout<<"\nDecrypted information: "<<decryptedData;
 		std::string delimiter = " ";
 		string dob, first, last, ID, pswd;
 		for(int a=0; a<5; a++)
@@ -112,7 +112,7 @@ int readAndDecrypt()
         		decryptedData += dataIn[x] ^ key;
         	}
         	
-        cout<<"\nDecrypted shit (teller): "<<decryptedData;
+        cout<<"\nDecrypted information (teller): "<<decryptedData;
 		std::string delimiter = " ";
 		string dob, first, last, ID, pswd;
 		for(int a=0; a<5; a++)
@@ -176,7 +176,7 @@ int readAndDecrypt()
         		decryptedData += dataIn[x] ^ key;
         	}
         	
-        cout<<"\nDecrypted shit(client): "<<decryptedData;
+        cout<<"\nDecrypted information(client): "<<decryptedData;
 		std::string delimiter = " ";
 		string dob, first, last, ID, pswd;
 		for(int a=0; a<5; a++)
