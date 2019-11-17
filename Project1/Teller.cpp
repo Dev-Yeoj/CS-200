@@ -18,7 +18,21 @@ Client* Teller::addClient(){
 }
 
 void Teller::viewLog(){
-	//inprogress
+	ifstream inData;
+	string data;
+    inData.open("loginLog.txt");
+    system("CLS");
+	while (!inData.eof()) {
+		getline(inData, data);
+		cout<<data<<endl;
+	}
+	inData.open("telOpenLog.txt");
+	while (!inData.eof()) {
+		getline(inData, data);
+		cout<<data<<endl;
+	}
+	system("PAUSE");
+	inData.close();
 }
 
 void Teller::print(){

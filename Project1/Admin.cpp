@@ -45,11 +45,18 @@ void Admin::viewLog(){
 	ifstream inData;
 	string data;
     inData.open("loginLog.txt");
+    system("CLS");
 	while (!inData.eof()) {
 		getline(inData, data);
-		data += data;
+		cout<<data<<endl;
 	}
-	cout<<data;
+	inData.open("telOpenLog.txt");
+	while (!inData.eof()) {
+		getline(inData, data);
+		cout<<data<<endl;
+	}
+	system("PAUSE");
+	inData.close();
 }
 
 void Admin::print(){
