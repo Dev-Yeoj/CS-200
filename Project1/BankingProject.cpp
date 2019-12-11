@@ -378,7 +378,7 @@ int main(int argc, char** argv) {
 		for(int i=0; i<=count;i++){
 			//cout<<"client ptr= "<<cliPTR[0]->getID()<<cliPTR[0]->getPass()<<endl;
 			if(accPTR[i]->getID()==id && accPTR[i]->getPass()==pswd){
-				Audit::loginLog(accPTR[i]->getRole(), accPTR[i]->getFullNm());
+				Audit::logLogin(accPTR[i]->getRole(), accPTR[i]->getFullNm());
 				do{
 					switch(accPTR[i]->getRole()){
 						case 1://Admin
@@ -432,7 +432,7 @@ int main(int argc, char** argv) {
 											cin>>cliID, cliPSWD;
 											for(int x=0; x<=cliCount;x++){
 												if(cliPTR[x]->getID()==cliID && cliPTR[x]->getPass()==cliPSWD){
-													Audit::openAccLog(telPTR[j], cliPTR[x]);
+													Audit::logOpenCli(telPTR[j], cliPTR[x]);
 													do { //choice controlled system
 						    		    				system("CLS");
 						    		    				opt2 = cliPTR[x]->menu();

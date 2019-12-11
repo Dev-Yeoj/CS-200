@@ -10,12 +10,13 @@ using namespace std;
 class Audit {
 	private:
 		static void saveLoginLog(string);
+		static string getSysTime();
 		static void saveTellerOpenLog(string);
 		
 	public:
 		Audit();
-		static void openAccLog(Teller*, Client*);
-		static void loginLog(int, string);
+		static void logOpenCli(Teller*, Client*);
+		static void logLogin(int, string);
 };
 
 #endif
